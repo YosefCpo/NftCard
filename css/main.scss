@@ -1,0 +1,116 @@
+@use "variables" as *;
+
+* {
+	font-family: "Outfit", sans-serif;
+}
+p {
+	font-size: 18px;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-color: $very_dark_blue1;
+	margin: 0;
+}
+
+.card {
+	box-shadow: 0 0 10px 0 black;
+	background-color: $very_dark_blue2;
+	padding: 20px;
+	border-radius: 12px;
+	width: 250px;
+	.img {
+		position: relative;
+		height: 250px;
+		cursor: pointer;
+		&::before {
+			content: "";
+			left: 0;
+			top: 0;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: $cyan;
+			border-radius: 12px;
+			opacity: 0;
+			transition: 0.3s;
+		}
+		img:first-child {
+			max-width: 250px;
+			border-radius: 12px;
+		}
+		img:nth-child(2) {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			opacity: 0;
+			transition: 0.3s;
+		}
+		&:hover {
+			img:nth-child(2) {
+				opacity: 1;
+			}
+			&::before {
+				opacity: 0.5;
+			}
+		}
+	}
+	h3 {
+		color: $white;
+		transition: 0.3s;
+		&:hover {
+			color: $cyan;
+		}
+	}
+	p {
+		color: #aaa;
+		font-weight: 400;
+		font-size: 15px;
+	}
+	.container {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 20px 0;
+		.price {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+			span {
+				color: $cyan;
+			}
+		}
+		.time {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+			color: $soft_blue;
+		}
+	}
+	.footer {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		width: 100%;
+		border-top: 1px solid $soft_blue;
+		padding-top: 8px;
+		img {
+			max-width: 30px;
+			max-height: 30px;
+			border: 1px solid $white;
+			border-radius: 50%;
+		}
+		p span {
+			color: $white;
+			transition: 0.3s;
+			&:hover {
+				color: $cyan;
+			}
+		}
+	}
+}
